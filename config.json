@@ -10,6 +10,8 @@
         "login_img_name": "login.svg",
         "fb_link": "https://www.facebook.com/souptik.datta.750",
         "tw_link": "https://twitter.com/datta_souptik",
-        "git_link": "https://github.com/Souptik2001"
+        "git_link": "https://github.com/Souptik2001",
+        "admin_user": "sd@gmail.com",
+        "admin_pass": "hello"
     }
 }
