@@ -1,0 +1,15 @@
+{
+    "params": {
+        "local_uri": "mysql://root:@localhost/geekypage",
+        "prod_uri": "mysql://root:@localhost/geekypage",
+        "latest_posts_no": "3",
+        "blog_name": "Geeky Page",
+        "home_blog_name": "|| GeeKy Page ||",
+        "home_sub": "For Geeks",
+        "left_logo": "G.P",
+        "login_img_name": "login.svg",
+        "fb_link": "https://www.facebook.com/souptik.datta.750",
+        "tw_link": "https://twitter.com/datta_souptik",
+        "git_link": "https://github.com/Souptik2001"
+    }
+}

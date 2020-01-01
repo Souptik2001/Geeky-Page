@@ -1,0 +1,58 @@
+{% extends "index.html" %} {% block body %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('      {{url_for('static', filename = 'img/contact-bg.jpg')}}       ')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Admin Dashboard ~ Edit</h1>
+                    <span class="subheading">Edit Your Awesome Thoughts</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p> <strong>Edit your written Blog : </strong> </p>
+            <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+            <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+            <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+            <form name="sentMessage" id="contactForm" action="/dashboard/edit/{{post.sl_no}}" method="post" novalidate>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="Title" id="name" name="title" value="{{post.title}}" required data-validation-required-message="Please enter the title.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Edit Your Thoughts</label>
+                        <textarea rows="5" class="form-control" placeholder="Your Hot thoughts" id="message" name="body" required data-validation-required-message="Please spread your thoughts.">{{post.body}}</textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Edit Written By</label>
+                        <textarea rows="5" class="form-control" placeholder="Written By" id="message" name="wr_by" required data-validation-required-message="Please spread your thoughts.">{{post.wr_by}}</textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Post !</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

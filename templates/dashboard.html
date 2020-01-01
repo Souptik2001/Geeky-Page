@@ -1,0 +1,63 @@
+{% extends "index.html" %} {% block body %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('      {{url_for('static', filename = 'img/contact-bg.jpg')}}       ')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Admin Dashboard</h1>
+                    <span class="subheading">Your Space</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p> <strong>Add New Post :</strong> </p>
+            <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+            <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+            <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+
+            <a href="/dashboard/add"><button type="submit" class="btn btn-primary" id="sendMessageButton">Add !</button></a>
+            <br>
+            <hr>
+            <br>
+            <p> <strong>Edit or Delete your old posts : </strong> </p>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl. No.</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Body</th>
+                        <th scope="col">Written By</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts%}
+                    <tr>
+                        <th scope="row">{{post.sl_no}}</th>
+                        <td>{{post.title}}</td>
+                        <td>{{post.body}}</td>
+                        <td>{{post.wr_by}}</td>
+                        <td><a href="/dashboard/delete/{{post.sl_no}}"><button type="submit" class="btn btn-primary" id="sendMessageButton">Delete</button></a></td>
+                        <td><a href="/dashboard/edit/{{post.sl_no}}"><button type="submit" class="btn btn-primary" id="sendMessageButton" style="float:inline-start">Edit</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
