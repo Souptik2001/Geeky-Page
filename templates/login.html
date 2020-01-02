@@ -84,7 +84,11 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> {% if wrong == 'True' %}
+        <br>
+        <br>
+        <p style="color: red;"><strong> ! Wrong Username or Password ! </strong></p>
+        {% endif %}
         <p class="mt-5 mb-3 text-muted">&copy;{{params['blog_name']}} 2017-2019</p>
     </form>
 </body>

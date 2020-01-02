@@ -30,7 +30,6 @@ class Posts(db.Model):
     body = db.Column(db.String(120), unique=False, nullable=False)
     wr_by = db.Column(db.String(120), unique=False, nullable=False)
     date = db.Column(db.String(120), unique=False, nullable=True)
-    slug = db.Column(db.String(120), unique=False, nullable=True)
 
 @app.route('/')
 def home():
@@ -62,12 +61,12 @@ def contact():
         logged= "True"
     return render_template("contact.html", params=params, logged=logged)
 
-@app.route('/post/<string:post_slug>')
-def post(post_slug):
+@app.route('/post/<string:post_no>')
+def post(post_no):
     logged="False"
     if('user' in session and session['user'] == params['admin_user']):
         logged= "True"
-    post = Posts.query.filter_by(slug=post_slug).first()
+    post = Posts.query.filter_by(sl_no=post_no).first()
     return render_template("post.html", post=post, params=params, logged=logged)
 
 @app.route('/posts')
@@ -81,6 +80,7 @@ def posts():
 @app.route('/login', methods = {'GET', 'POST'})
 def login():
     logged="False"
+    wrong='False'
     if('user' in session and session['user'] == params['admin_user']):
         logged= "True"
     if(request.method == 'POST'):
@@ -89,7 +89,9 @@ def login():
         if(uname == params['admin_user'] and password == params['admin_pass']):
             session['user'] = uname
             return redirect('/')
-    return render_template("login.html", params=params, logged=logged)
+        else:
+            wrong='True'
+    return render_template("login.html", params=params, logged=logged, wrong=wrong)
 
 @app.route('/logout')
 def logout_user():
