@@ -1,6 +1,7 @@
 {
     "params": {
         "local_uri": "mysql://root:@localhost/geekypage",
+        "local_uri_sqlite": "sqlite:///geekypage.db",
         "prod_uri": "mysql://root:@localhost/geekypage",
         "latest_posts_no": "3",
         "blog_name": "Geeky Page",

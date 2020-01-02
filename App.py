@@ -11,7 +11,7 @@ local_host = True
 app = Flask(__name__)
 app.secret_key='super-secret-key'
 if (local_host):
-    app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri"]
+    app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri_sqlite"]
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params["prod_uri"]
 db = SQLAlchemy(app)
@@ -19,8 +19,8 @@ db = SQLAlchemy(app)
 class Messages(db.Model):
     sl_no = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
-    email = db.Column(db.String(120), unique=False, nullable=False)
-    ph_no = db.Column(db.String(120), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=True)
+    ph_no = db.Column(db.String(120), unique=False, nullable=True)
     message = db.Column(db.String(120), unique=False, nullable=False)
     date = db.Column(db.String(120), unique=False, nullable=True)
 
@@ -119,7 +119,7 @@ def dashboardadd():
             body = request.form.get('body')
             wr_by = request.form.get('wr_by')
             slug = request.form.get('slug')
-            blog_entry = Posts(title=title, body=body, wr_by=wr_by, slug=slug, date=datetime.now())
+            blog_entry = Posts(title=title, body=body, wr_by=wr_by, date=datetime.now())
             db.session.add(blog_entry)
             db.session.commit()
             return render_template("sucessfull.html", params=params)
@@ -140,7 +140,6 @@ def dashboardedit(sl_no):#sl_no
             edit_post.title= request.form.get('title')
             edit_post.body= request.form.get('body')
             edit_post.wr_by= request.form.get('wr_by')
-            edit_post.slug= edit_post.slug
             edit_post.date= datetime.now()
             db.session.commit()
             # return redirect('/dashboard/sucessfull')
