@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{url_for('static', filename='img/s_logo.png')}}">
+    <meta name="author" content=""> {% set web_logo = 'img/' + params['website_logo'] %}
+    <link rel="icon" href="{{url_for('static', filename=web_logo)}}">
     <!-- <title>{{params['blog_name']}}</title> -->
     <title>{{params['blog_name']}}</title>
 

@@ -8,11 +8,12 @@
         "home_sub": "For Geeks",
         "left_logo": "G.P",
         "login_img_name": "login.jpg",
-        "hellologo": "s_logo.png",
+        "website_logo": "s_logo.png",
         "fb_link": "https://www.facebook.com/souptik.datta.750",
         "tw_link": "https://twitter.com/datta_souptik",
         "git_link": "https://github.com/Souptik2001",
         "admin_user": "sd@gmail.com",
-        "admin_pass": "hello"
+        "admin_pass": "hello",
+        "about": "Hello this is Souptik. And I am a programmer. Get in touch with me on social media links below."
     }
 }
