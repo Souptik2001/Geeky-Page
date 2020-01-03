@@ -159,3 +159,4 @@ def delete(sl_no):
     return redirect('/login')
 
 app.run(host="0.0.0.0", port="1200",debug=True)
+# app.run(debug=True)
