@@ -158,4 +158,4 @@ def delete(sl_no):
         return render_template("sucessfull.html", params=params, logged=logged)
     return redirect('/login')
 
-app.run(debug=True)
+app.run(host="0.0.0.0", port="1200",debug=True)
